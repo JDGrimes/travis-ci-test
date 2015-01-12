@@ -1,17 +1,12 @@
 language: php
 
 php:
-    - 5.2
+    - 5.3
 
 sudo: false
 
-matrix:
-  fast_finish: true
-
 before_script:
-  - phpenv global 5.3
-  - composer install
-  - phpenv global $TRAVIS_PHP_VERSION
+    - export CODESNIFF_PATH=(. ! -path "./dev-lib/*" ! -path "./vendor/*")
 
 script:
-  - php --version
+    - find "${CODESNIFF_PATH[@]}" \( -name '*.php' -o -name '*.inc' \) -exec php -lf {} \;
