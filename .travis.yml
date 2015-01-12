@@ -9,6 +9,5 @@ before_script:
     - export CODESNIFF_PATH=('.' '!' -path "./dev-lib/*" '!' -path "./vendor/*")
 
 script:
-    - [ -z $CODESNIFF_PATH ]
-    - echo $CODESNIFF_PATH
+    - echo "${CODESNIFF_PATH[*]}"
     - find "${CODESNIFF_PATH[@]}" \( -name '*.php' -o -name '*.inc' \) -exec php -lf {} \;
