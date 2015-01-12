@@ -6,7 +6,7 @@ php:
 sudo: false
 
 before_script:
-    - export CODESNIFF_PATH=('.' '!' -path "./dev-lib/*" '!' -path "./vendor/*")
+    - CODESNIFF_PATH=('.' '!' -path "./dev-lib/*" '!' -path "./vendor/*"); export CODESNIFF_PATH
 
 script:
     - if [[ -z $CODESNIFF_PATH ]]; then echo 'does not exist'; else echo 'exists!'; fi
