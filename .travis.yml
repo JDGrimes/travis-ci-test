@@ -1,17 +1,1 @@
-language: php
-
-php:
-    - 5.2
-
-sudo: false
-
-matrix:
-  fast_finish: true
-
-before_script:
-  - phpenv global 5.3
-  - composer install
-  - phpenv global $TRAVIS_PHP_VERSION
-
-script:
-  - php --version
+dev-lib/travis/modules.yml
