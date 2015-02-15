@@ -12,6 +12,8 @@ before_script:
 script:
   - find . -name '*.yml' -exec travis-lint {} \;
   - php -v
-  - phpenv 5.4 && php -v
+  - phpenv global 5.4 && php -v
+  - phpenv global 5.5 && php -v
+  - phpenv global 5.6 && php -v
 
 # EOF
