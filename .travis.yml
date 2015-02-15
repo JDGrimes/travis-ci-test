@@ -1,17 +1,17 @@
-language: php
+language: ruby
 
 php:
     - 5.3
 
+# Use the new infrustructure.
 sudo: false
 
-matrix:
-  fast_finish: true
-
 before_script:
-  - mkdir -p /tmp/wordpress
-  - wget -nv -O /tmp/wordpress.zip https://wordpress.org/nightly-builds/wordpress-latest.zip
-  - unzip /tmp/wordpress.zip -d /tmp/wordpress
+  - gem install travis-lint
 
 script:
-  - ls /tmp/wordpress
+  - find . -name '*.yml' -exec travis-lint {} \;
+  - php -v
+  - phpenv 5.4 && php -v
+
+# EOF
