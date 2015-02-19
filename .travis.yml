@@ -6,8 +6,21 @@ php:
 sudo: false
 
 before_script:
-    - CODESNIFF_PATH=('.' '!' -path "./dev-lib/*" '!' -path "./vendor/*"); export CODESNIFF_PATH
+    - export PHPCS_DIR=/tmp/phpcs
+    - export PHPCS_GITHUB_SRC=squizlabs/PHP_CodeSniffer
+    - export PHPCS_GIT_TREE=master
+    ->
+    # Install a package from GitHub.
+    install-from-github() {
+    
+    	local GITHUB_SRC=${1}_GITHUB_SRC
+    	local GITHUB_TREE=${1}_GITHUB_TREE
+    	local DIR=${1}_DIR
+    
+        mkdir -p "${!DIR}"
+        curl -L "https://github.com/${!GITHUB_SRC}/archive/${!GITHUB_TREE}.tar.gz" \
+            | tar xvz --strip-components=1 -C "${!DIR}"
+    }
 
 script:
-    - if [[ -z $CODESNIFF_PATH ]]; then echo 'does not exist'; else echo 'exists!'; fi
-    - find "${CODESNIFF_PATH[@]}" \( -name '*.php' -o -name '*.inc' \) -exec php -lf {} \;
+    - install-from-github PHPCS
