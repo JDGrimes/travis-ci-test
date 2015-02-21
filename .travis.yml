@@ -12,4 +12,4 @@ before_script:
     - source bash.sh
 
 script:
-    - install-from-github PHPCS
+    - install-cubepoints
