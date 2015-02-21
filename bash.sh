@@ -1,12 +1,19 @@
+#!/bin/bash
 
-        # Install a package from GitHub.
-        install-from-github() {
-        
-        	local GITHUB_SRC=${1}_GITHUB_SRC
-        	local GIT_TREE=${1}_GIT_TREE
-        	local DIR=${1}_DIR
-        echo "https://github.com/${!GITHUB_SRC}/archive/${!GITHUB_TREE}.tar.gz"
-            mkdir -p "${!DIR}"
-            curl -L "https://github.com/${!GITHUB_SRC}/archive/${!GIT_TREE}.tar.gz" \
-                | tar xvz --strip-components=1 -C "${!DIR}"
-        }
+set -e
+shopt -s expand_aliases
+
+# Install CubePoints when running tests.
+if [[ $TRAVISCI_RUN == phpunit  ]]; then
+
+	mkdir -p /tmp/cubepoints
+	curl -s https://downloads.wordpress.org/plugin/cubepoints.3.2.1.zip /tmp/cubepoints.zip
+	unzip /tmp/cubepoints.zip -d /tmp/cubepoints
+
+	mkdir /tmp/wordpress/wp-content/plugins/cubepoints
+	ln -s /tmp/cubepoints /tmp/wordpress/wp-content/plugins/cubepoints
+	
+	ls /tmp/wordpress/wp-content/plugins/cubepoints
+fi
+
+set +e
