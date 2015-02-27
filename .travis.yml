@@ -9,5 +9,5 @@ matrix:
   fast_finish: true
 
 script:
-  - phpenv nightly
+  - phpenv 7.0
   - php -v
