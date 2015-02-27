@@ -9,7 +9,7 @@ shopt -s expand_aliases
 	unzip /tmp/cubepoints.zip -d /tmp/
 
 	mkdir -p /tmp/wordpress/wp-content/plugins/cubepoints
-	mv /tmp/cubepoints/ /tmp/wordpress/wp-content/plugins/cubepoints
+	mv /tmp/cubepoints/ /tmp/wordpress/wp-content/plugins/
 	
 	ls /tmp/wordpress/wp-content/plugins/cubepoints/
 
