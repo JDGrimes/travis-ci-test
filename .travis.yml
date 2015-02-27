@@ -8,10 +8,6 @@ sudo: false
 matrix:
   fast_finish: true
 
-before_script:
-  - mkdir -p /tmp/wordpress
-  - wget -nv -O /tmp/wordpress.zip https://wordpress.org/nightly-builds/wordpress-latest.zip
-  - unzip /tmp/wordpress.zip -d /tmp/wordpress
-
 script:
-  - ls /tmp/wordpress
+  - phpenv nightly
+  - php -v
