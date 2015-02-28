@@ -3,12 +3,10 @@
 set -e
 shopt -s expand_aliases
 
-# Install CubePoints when running tests.
-	mkdir -p /tmp/wordpress/wp-content/plugins/cubepoints
-	curl -s https://downloads.wordpress.org/plugin/cubepoints.3.2.1.zip > /tmp/cubepoints.zip
-	unzip /tmp/cubepoints.zip -d /tmp/wordpress/wp-content/plugins/
-
-	ls /tmp/wordpress/wp-content/plugins/cubepoints/
-
+	# We always need to do this when collecting code coverage, even if there are no
+	# composer dependencies.
+		composer require satooshi/php-coveralls:dev-master
+		mkdir -p build/logs
+ls vendor
 
 set +e
