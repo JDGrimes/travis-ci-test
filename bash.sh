@@ -18,6 +18,9 @@ WP_VERSION=4.0
 	sed -i "s/yourusernamehere/root/" wp-tests-config.php
 	sed -i "s/yourpasswordhere//" wp-tests-config.php
 	cd -
+	ls "$WP_TESTS_DIR"
+	ls "$WP_TESTS_DIR"/includes
+	
 		sed -i 's/do_action( '"'"'admin_init'"'"' )/if ( ! isset( $GLOBALS['"'"'_did_admin_init'"'"'] ) \&\& $GLOBALS['"'"'_did_admin_init'"'"'] = true ) do_action( '"'"'admin_init'"'"' )/' \
 			"$WP_TESTS_DIR"/includes/testcase-ajax.php
 
