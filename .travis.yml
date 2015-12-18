@@ -9,5 +9,6 @@ matrix:
   fast_finish: true
 
 script:
+  - phpenv versions
   - phpenv 7
   - php -v
