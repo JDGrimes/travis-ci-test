@@ -10,5 +10,5 @@ matrix:
 
 script:
   - phpenv versions
-  - phpenv 7
+  - phpenv releases
   - php -v
