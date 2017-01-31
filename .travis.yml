@@ -1,12 +1,17 @@
 language: php
 
 php:
-    - 7.0
+    - 5.2
 
 sudo: false
 
 matrix:
   fast_finish: true
+
+before_script:
+  - phpenv global 5.3
+  - composer install --prefer-source
+  - phpenv global "$TRAVIS_PHP_VERSION"
 
 script:
   - phpenv versions
