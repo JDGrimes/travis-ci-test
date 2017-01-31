@@ -10,6 +10,7 @@ matrix:
 
 before_script:
   - phpenv global 5.3
+  - composer self-update
   - composer install --prefer-source
   - phpenv global "$TRAVIS_PHP_VERSION"
 
