@@ -7,4 +7,6 @@ matrix:
   fast_finish: true
 
 script:
+  - ls /home/travis/.phpenv/versions/5.2.17/pear/
   - ls /home/travis/.phpenv/versions/5.2.17/pear/PHPUnit
+  - ls /home/travis/.phpenv/versions/5.2.17/pear/PHPUnit/Framework
