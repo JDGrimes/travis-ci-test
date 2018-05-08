@@ -9,6 +9,7 @@ matrix:
   fast_finish: true
 
 before_script:
+  - phpunit --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require "phpunit/phpunit=^6"
 
