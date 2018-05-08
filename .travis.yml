@@ -10,6 +10,7 @@ matrix:
 
 before_script:
   - phpunit --version
+  - which phpunit
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require "phpunit/phpunit=^6"
 
