@@ -1,14 +1,16 @@
 language: php
 
 php:
-    - 7.0
+    - 7.2
 
 sudo: false
 
 matrix:
   fast_finish: true
 
+before_script:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - composer global require "phpunit/phpunit=^6"
+
 script:
-  - phpenv versions
-  - phpenv releases
-  - php -v
+  - phpunit --version
